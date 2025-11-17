@@ -26,7 +26,7 @@ export const useTaskStore = create<TaskStore>((set) => ({
   fetchTasks: async () => {
     set({ loading: true, error: null });
     try {
-      const res = await fetch("/api/v1/tasks");
+      const res = await fetch("/api/v1/tasks/getTasks");
       if (!res.ok) throw new Error("Failed to fetch tasks");
       const data = await res.json();
       set({ tasks: data, loading: false });
@@ -40,7 +40,7 @@ export const useTaskStore = create<TaskStore>((set) => ({
 
   createTask: async (title: string) => {
     try {
-      const res = await fetch("/api/v1/tasks", {
+      const res = await fetch("/api/v1/tasks/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title }),
@@ -59,7 +59,7 @@ export const useTaskStore = create<TaskStore>((set) => ({
     if (!task) return;
 
     try {
-      const res = await fetch(`/api/v1/tasks/${id}`, {
+      const res = await fetch(`/api/v1/tasks/update/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isDone: !task.isDone }),
@@ -78,7 +78,7 @@ export const useTaskStore = create<TaskStore>((set) => ({
 
   deleteTask: async (id: string) => {
     try {
-      const res = await fetch(`/api/v1/tasks/${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/v1/tasks/remove/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed to delete task");
       set((state) => ({
         tasks: state.tasks.filter((t) => t._id !== id),
