@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  easeIn,
+  easeOut,
+  cubicBezier,
+} from "framer-motion";
 import styles from "./AddTaskModal.module.css";
 
 interface AddTaskModalProps {
@@ -44,11 +50,11 @@ export default function AddTaskModal({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.15, ease: "easeOut" },
+      transition: { duration: 0.15, ease: easeOut },
     },
     exit: {
       opacity: 0,
-      transition: { duration: 0.15, ease: "easeIn" },
+      transition: { duration: 0.15, ease: easeIn },
     },
   };
 
@@ -64,8 +70,8 @@ export default function AddTaskModal({
       y: 0,
       transition: {
         duration: 0.2,
-        ease: [0.25, 0.1, 0.25, 1],
-        delay: 0.05, // Slight delay for overlay to start first
+        ease: cubicBezier(0.25, 0.1, 0.25, 1),
+        delay: 0.05,
       },
     },
     exit: {
@@ -74,7 +80,7 @@ export default function AddTaskModal({
       y: 20,
       transition: {
         duration: 0.15,
-        ease: "easeIn",
+        ease: easeIn,
       },
     },
   };
