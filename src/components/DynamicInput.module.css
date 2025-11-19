@@ -1,0 +1,30 @@
+.dynamicInput {
+  border-radius: 4px;
+  width: 100%;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--neutral-black);
+  color: var(--neutral-white);
+  transition: border-color 0.25s;
+}
+.dynamicInput::placeholder {
+  font-size: 0.9rem;
+  font-weight: 350;
+  letter-spacing: 0.02rem;
+  color: var(--neutral-white-darker);
+  opacity: 0.7;
+}
+
+.dynamicInput::selection {
+  background-color: var(--primary-1);
+  color: white;
+}
+
+.dynamicInput:focus {
+  border-color: var(--primary-1);
+  outline: none;
+}

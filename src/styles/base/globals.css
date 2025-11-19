@@ -2,6 +2,57 @@
 
 :root {
   --background: #ffffff;
+  --foreground: #141414;
+
+  --primary-0: color-mix(in lch, var(--primary-1) 80%, white);
+  --primary-1: hsl(238, 48%, 52%);
+  --primary-2: color-mix(in lch, var(--primary-1) 75%, black);
+  --primary-3: color-mix(in lch, var(--primary-1) 50%, black);
+  --primary-disabled: rgb(120, 120, 150);
+
+  --neutral-black-darker: #252525;
+  --neutral-black-dark: #2e2e2e;
+  --neutral-black: #363636;
+  --neutral-black-light: #444444;
+  --neutral-black-lighter: #515151;
+
+  --neutral-white-darker: #d6d8d9;
+  --neutral-white-dark: #e2e4e5;
+  --neutral-white: #eef0f2;
+  --neutral-white-light: #f5f8fa;
+  --neutral-white-lighter: #fafcff;
+
+  --success-dark: #5a895a;
+  --success: #71ac71;
+  --success-light: #87ce87;
+
+  --error-dark: #963422;
+  --error: #bc412b;
+  --error-light: #e14d33;
+
+  --warning-dark: #967b44;
+  --warning: #bc9a56;
+  --warning-light: #e1b867;
+
+  --info-dark: #5a6689;
+  --info: #7180ac;
+  --info-light: #8799ce;
+
+  --def-icon-color1-rgb: 214 216 217;
+  --def-icon-color1-alpha: 0.15;
+
+  --def-icon-color1: rgb(
+    var(--def-icon-color1-rgb) / var(--def-icon-color1-alpha)
+  );
+
+  --def-icon-color2-rgb: 214 216 217;
+  --def-icon-color2-alpha: 1;
+
+  --def-icon-color2: rgb(
+    var(--def-icon-color2-rgb) / var(--def-icon-color2-alpha)
+  );
+
+  --background: #ffffff;
   --foreground: #171717;
 
   /* Background Colors */
@@ -58,4 +109,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.layout__container {
+  position: absolute;
+  top: 0;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-top: var(--nav-height); */
+}
+
+.layout__container-signup-page {
+  display: flex;
+  gap: 18px;
+  flex-direction: column;
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "./AddTaskModal.module.css";
 import { useEffect, useRef, useState } from "react";
 import {
   AnimatePresence,
@@ -8,7 +9,6 @@ import {
   easeOut,
   cubicBezier,
 } from "framer-motion";
-import styles from "./AddTaskModal.module.css";
 
 interface AddTaskModalProps {
   isOpen: boolean;

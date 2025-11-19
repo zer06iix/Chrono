@@ -1,0 +1,164 @@
+.loginContainer {
+  min-width: 320px;
+  background-color: var(--neutral-black-darker);
+  border: 1px solid rgba(160, 160, 160, 0.08);
+  padding: 24px;
+  border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 29px 0px;
+}
+
+.layoutContainerLoginPage {
+  display: flex;
+  gap: 18px;
+  flex-direction: column;
+}
+
+.loginTitle {
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-variation-settings: "wght" 100;
+  font-size: 3.25rem;
+  margin-bottom: 30px;
+  color: var(--neutral-white);
+  opacity: 0;
+  animation: weightFadeIn 0.75s 0.05s ease-out forwards;
+}
+
+@keyframes weightFadeIn {
+  0% {
+    opacity: 0;
+    font-variation-settings: "wght" 100; /* Start thin */
+  }
+  100% {
+    opacity: 1;
+    font-variation-settings: "wght" 380; /* End at weight 460 */
+  }
+}
+
+.loginContainerSocialLinks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.loginContainerSocialLinks :global(.social-auth-button) {
+  height: 48px;
+  position: relative;
+  background-color: var(--neutral-black);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  --ripple-color: rgba(54, 54, 54, 0.5);
+}
+
+.loginContainerSocialLinks :global(.social-auth-button:focus-visible) {
+  border-color: var(--primary-1);
+}
+
+.loginContainerSocialLinks > :global(.social-auth-button:hover) {
+  background-color: var(--neutral-black-light);
+}
+
+.loginContainerSocialLinks > :global(.social-auth-button) > :global(p.label) {
+  position: absolute;
+  transform: translateY(0px);
+  color: var(--neutral-white);
+  opacity: 1;
+  transition: transform 0.25s ease-out, opacity 0.08s ease-out;
+}
+
+.loginContainerSocialLinks
+  > :global(.social-auth-button:hover)
+  > :global(p.label) {
+  transform: translateY(40px);
+  opacity: 0;
+}
+
+.loginContainerSocialLinks > :global(.social-auth-button) > :global(svg) {
+  position: absolute;
+  transform: translateY(-40px);
+  fill: var(--neutral-white);
+  transition: transform 0.25s ease-out, opacity 0.08s ease-out;
+  aspect-ratio: 1;
+  height: 28px;
+  opacity: 0;
+  width: auto;
+}
+
+.loginContainerSocialLinks > :global(.social-auth-button:hover) > :global(svg) {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.loginContainerSeparator {
+  position: relative;
+  width: 100%;
+  margin-block: 32px;
+  border-radius: 10px;
+}
+
+.loginContainerSeparatorLine {
+  height: 2px;
+  background-color: var(--neutral-black);
+}
+
+.loginContainerSeparatorLabel {
+  position: absolute;
+  width: fit-content;
+  left: 50%;
+  padding-inline: 8px;
+  font-size: 0.85rem;
+  font-weight: 250;
+  letter-spacing: 0.02rem;
+  transform: translate(-50%, calc(-50% - 3.5px));
+  color: var(--neutral-white-darker);
+  user-select: none;
+  background: var(--neutral-black-darker);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginFormGroup {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.loginInput {
+  height: 48px;
+  background-color: var(--neutral-black);
+}
+
+.loginInput:focus,
+.loginInput:focus-visible {
+  border-color: var(--primary-1);
+}
+
+.loginFormActions {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.loginFormButton {
+  padding: 10px 12px;
+  background-color: rgba(89, 94, 198, 0.6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.loginPageSwitchAuthLink {
+  --ripple-color: rgba(50, 50, 50, 0.25);
+  color: var(--primary-0) !important;
+}

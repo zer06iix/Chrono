@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTaskStore, type Task } from "../lib/store";
 import AddTaskModal from "../components/AddTaskModal";
 import styles from "./page.module.css";
+import DynamicButton from "../components/DynamicButton";
 
 export default function Home() {
   const { tasks, loading, error, fetchTasks, createTask } = useTaskStore();
@@ -21,25 +22,31 @@ export default function Home() {
     createTask(title);
   };
 
-  if (loading) return <div className={styles.loading}>Loading tasks...</div>;
-  if (error) return <div className={styles.error}>Error: {error}</div>;
-
   return (
     <>
-      <main className={styles.main}>
+      <main className={`container ${styles.main}`}>
         <div className={styles.container}>
-          <header className={styles.header}>
-            <h1 className={styles.title}>Chrono Todo</h1>
-          </header>
-
           <div className={styles.controls}>
-            <button onClick={handleOpenModal} className={styles.addButton}>
+            <DynamicButton
+              variant="primary"
+              onClick={handleOpenModal}
+              style={{ borderRadius: "var(--radius-lg)" }}
+              disabled={loading}
+            >
               + Add New Task
-            </button>
+            </DynamicButton>
           </div>
 
           <div className={styles.taskList}>
-            {tasks.length === 0 ? (
+            {loading ? (
+              <div className={styles.emptyState}>
+                <p>
+                  Loading tasks... <span className={styles.spinner}></span>
+                </p>
+              </div>
+            ) : error ? (
+              <div className={styles.error}>Error: {error}</div>
+            ) : tasks.length === 0 ? (
               <div className={styles.emptyState}>
                 <p>No tasks yet</p>
                 <small>Create your first task to get started</small>

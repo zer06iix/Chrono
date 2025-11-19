@@ -1,0 +1,40 @@
+.returnButton {
+  position: absolute;
+  top: 22;
+  left: 22;
+  padding-block: 12px;
+  padding-inline: 12px 15px;
+  background-color: var(--neutral-black);
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  letter-spacing: 0.06rem;
+  border: 1.55px solid var(--neutral-black);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 29px 0px;
+  transition: border-color 0.25s ease;
+}
+
+.returnButton:hover {
+  cursor: pointer;
+  border-color: var(--neutral-black-lighter);
+}
+
+.returnButton:focus-visible {
+  border-color: var(--primary-1);
+}
+
+.returnButton > svg {
+  display: inline-block;
+  fill: var(--neutral-white);
+  aspect-ratio: 1 / 1;
+  height: 30px;
+  width: auto;
+}
+
+.returnButton p {
+  color: var(--def-icon-color2);
+  font-weight: 450;
+  padding-bottom: 0.75px;
+}

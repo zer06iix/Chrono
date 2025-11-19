@@ -1,3 +1,6 @@
+@import "../styles/base/typography.css";
 @import "../styles/base/reset.css";
 @import "../styles/base/globals.css";
-@import "../styles/base/typography.css";
+@import "../styles/base/container.css";
+
+@import "../styles/base/layout-container.css";

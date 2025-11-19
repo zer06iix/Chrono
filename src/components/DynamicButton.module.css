@@ -1,0 +1,95 @@
+.dynamicButton {
+  position: relative;
+  padding: 0.6rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  color: var(--primary-1);
+  transition-property: color, background-color, border-color;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  --ripple-color: rgba(0, 0, 0, 0.2); /* default ripple color */
+}
+
+.dynamicButton.pill {
+  border-radius: 999px;
+}
+
+.dynamicButton.primary {
+  color: var(--text-lighter);
+  background-color: var(--primary-1);
+  border: 3px solid transparent;
+}
+.dynamicButton.primary:hover {
+  color: var(--text-light);
+  background-color: var(--primary-2);
+}
+.dynamicButton.primary:disabled {
+  color: var(--text-medium);
+  background-color: var(--primary-disabled);
+  cursor: not-allowed;
+}
+
+.dynamicButton.secondary {
+  color: var(--primary-0);
+  background-color: transparent;
+  border: 3px solid var(--primary-0);
+}
+.dynamicButton.secondary:hover {
+  color: var(--primary-1);
+  border-color: var(--primary-1);
+}
+.dynamicButton.secondary:disabled {
+  color: var(--text-medium);
+  cursor: not-allowed;
+}
+
+.dynamicButton.tertiary {
+  color: var(--primary-1);
+  border: 3px solid transparent;
+  background-color: transparent;
+  padding: 0.3rem 0.6rem;
+  text-decoration: none;
+}
+.dynamicButton.tertiary:hover {
+  background-color: var(--bg-dark-1);
+}
+
+/* button:not(.dynamicButton) {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:not(.dynamicButton):hover {
+  border-color: #595fc6;
+}
+button:not(.dynamicButton):focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--ripple-color);
+  transform: scale(0);
+  opacity: 0.7;
+  pointer-events: none;
+  animation: ripple-effect 0.6s linear;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}

@@ -1,5 +1,4 @@
 .main {
-  min-height: 100vh;
   padding: 2rem;
   background: linear-gradient(135deg, var(--bg-primary) 0%, #16162e 100%);
 }
@@ -12,16 +11,6 @@
 .header {
   margin-bottom: 3rem;
   text-align: center;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
 }
 
 .controls {
@@ -61,8 +50,7 @@
 }
 
 .taskCard:hover {
-  border-color: hsl(var(--accent-primary) 10%);
-  border-color: rgb(from var(--accent-primary) r g b / 0.75);
+  border-color: rgb(from var(--accent-primary) r g b / 0.35);
   box-shadow: var(--shadow-md);
 }
 
@@ -118,6 +106,7 @@
 }
 
 .deleteButton {
+  --danger: #ef4444;
   background: var(--danger);
   color: white;
 }
